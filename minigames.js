@@ -31,18 +31,24 @@ client.on('message', msg=> {
                             {max: 1, time: 60000}).then(collected => {
                                     
                                     if (collected.first().content.toLowerCase() === 'yes') {
-                                            msg.reply('Game starting');
-                                            
-                                    }
+                                          msg.reply("Game starting! Please choose your player!")
 
+                                          
+
+
+
+                                          
+                                    }
+                                
                                     else
                                             message.reply('Operation canceled.');      
                             }).catch(() => {
                                     msg.reply('No answer after 60 seconds, operation canceled.');
                             });
                     break;
-            }  
-    }
-}
-});
+                        }
+                }
+        
+        }
+        });
 client.login(process.env.TOKEN);

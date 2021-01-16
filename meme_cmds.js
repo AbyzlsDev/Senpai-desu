@@ -34,7 +34,23 @@ client.on('message',  msg => {
             return;
             }
     }
-    
+
+    if(command == "bakugo"){
+        if (msg.author.id === "713314518297739274") {
+        msg.channel.send("Hey baby! ( btw you're a horny bitch and stop simping for me you fucking whore, get a fucking life")
+        msg.channel.send('https://tenor.com/view/bakugo-anime-hero-academy-gif-10939343')
+        }
+     else   {
+        msg.channel.send('SHINEE!')
+        msg.channel.send('https://tenor.com/view/bakugo-power-gif-13741841')
+
+     } 
+      
+       
+     
+
+      
+    }
     
 });
 
@@ -68,6 +84,8 @@ client.on('message',  msg => {
        
  
         }
+
+        
 
         
          

@@ -29,7 +29,7 @@ const command = args.shift().toLowerCase();
       
 
      msg.channel.send('```You called for help! \n\n Here are the available commands: \n\n ?play <song name> - plays a song; \n\n ?pause - pauses the current song; \n\n ?leave - The bot leaves; \n\n ?resume - Resumes the current song; ```');
-     msg.channel.send("```?horny - Hmm... spicy, isn't it?;```");
+     msg.channel.send("```?horny - Hmm... spicy, isn't it?; \n\n ?bakugo - Reserved for Val4ity; \n\n ?fight <@user> - fight untill death```");
     }
 
  
