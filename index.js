@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const song = require('./song')
 const commands = require('./commands')
 const meme_cmds = require('./meme_cmds')
-const shutdown = require('./shutdown.js')
+const shutdown = require('./minigames.js')
 
 
 const client = new Discord.Client();
