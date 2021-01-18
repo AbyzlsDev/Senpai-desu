@@ -7,6 +7,7 @@ const meme_cmds = require('./meme_cmds')
 const shutdown = require('./minigames.js')
 
 
+
 const client = new Discord.Client();
 
 
