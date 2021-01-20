@@ -45,6 +45,14 @@ client.on('message', msg=> {
                                let used1 = 0
                                let used2 = 0
                                 
+                               let lightUsed1 = 0
+                               let lightUsed2 = 0
+
+                               let mediumUsed1 = 0
+                               let mediumUsed2 = 0
+
+                               let heavyUsed1 = 0
+                               let heavyUsed2 = 0
 
                               let light 
                               let medium
@@ -76,28 +84,44 @@ client.on('message', msg=> {
                                             health2 = y
                                             msg.channel.send(`${player1} used their light attack and dealt ${light} damage to ${player2} and they have ${health2} health left!`)
                                             turn++
-          
+                                            lightUsed1++
                                             game()    
                                           } 
                                           else if (collected.first().content.toLowerCase() == '2') {
+                                            if(lightUsed1 >= 4){
                                             medium = Math.floor(Math.random() * 10) + 1
                                             y = health2 - medium
                                             health2 = y
                                             msg.channel.send(`${player1} used their medium attack and dealt ${medium} damage to ${player2} and they have ${health2} health left!`)
                                             turn++
+                                            mediumUsed1++
+                                            
           
-                                            game()    
+                                            game()  
+                                            }
+                                            else{
+                                               msg.channel.send(`You need to use your light attack at least 4 times!`)
+                                               game()
+                                            }  
                                           }
                                           else if (collected.first().content.toLowerCase() == '3') {
+                                            if(mediumUsed1 >= 3){
                                             heavy = Math.floor(Math.random() * 15) + 1
                                             y = health2 - heavy
                                             health2 = y
                                             msg.channel.send(`${player1} used their heavy attack and dealt ${heavy} damage to ${player2} and they have ${health2} health left!`)
                                             turn++
+                                            heavyUsed1++
           
                                             game()    
                                           }
+                                          else{
+                                            msg.channel.send(`You need to use your medium attack at least 3 times!`)
+                                               game()
+                                          }
+                                        }
                                           else if (collected.first().content.toLowerCase() == '4') {
+                                           if(mediumUsed1 >= 3 && lightUsed1 >= 4 && heavyUsed1 >= 2){
                                             if(used1 == 0){
                                               used1++
                                             y = health2 - ultimate
@@ -113,15 +137,18 @@ client.on('message', msg=> {
                                               game()
         
                                             }
-                                            
+                                          }else{
+                                            msg.channel.send(`${player1}, you have to use all of your attacks before you're able to use your ultimate!`)
+                                            game()
                                           }
+                                        }
       
                                           else if (collected.first().content.toLowerCase() == 'end') {
                                             msg.channel.send(`Game ending!`)
                                             return;   
                                           }
                                           else if (collected.first().content.toLowerCase() == 'attacks') {
-                                            msg.channel.send(`Your attacks are: \n\n 1: Light attack - from 1 - 6 damage; \n\n 2: Medium attack - from 1 - 11 damage; \n\n 3: Heavy attack - from 1 - 16 damage; \n\n\ 4: Heavy attack - 50 damage;`)
+                                            msg.channel.send(`Your attacks are: \n\n 1: Light attack - from 1 - 6 damage; \n\n 2: Medium attack - from 1 - 11 damage; \n\n 3: Heavy attack - from 1 - 16 damage; \n\n\  4: Heavy attack - 50 damage (1 use per game); \n\n`)
                                            game()
                                           }
                                           else {
@@ -162,28 +189,44 @@ client.on('message', msg=> {
                                       health1 = x
                                       msg.channel.send(`${player2} used their light attack and dealt ${light} damage to ${player1} and they have ${health1} health left!`)
                                       turn--
+                                      lightUsed2++
     
                                       game()    
                                     } 
                                     else if (collected.first().content.toLowerCase() == '2') {
+                                      if(lightUsed2 >= 4){
                                       medium = Math.floor(Math.random() * 10) + 1
                                       x = health1 - medium
                                       health1 = x
                                       msg.channel.send(`${player2} used their medium attack and dealt ${medium} damage to ${player1} and they have ${health1} health left!`)
                                       turn--
+                                      mediumUsed2++
     
-                                      game()    
+                                      game()   
+                                      }
+                                      else{
+                                        msg.channel.send(`You need to use your light attack at least 4 times!`)
+                                               game()
+                                      } 
                                     }
                                     else if (collected.first().content.toLowerCase() == '3') {
+                                      if(mediumUsed2 >= 3){
                                       heavy = Math.floor(Math.random() * 15) + 1
                                       x = health1 - heavy
                                       health1 = x
                                       msg.channel.send(`${player2} used their heavy attack and dealt ${heavy} damage to ${player1} and they have ${health1} health left!`)
                                       turn--
+                                      heavyUsed2++
     
-                                      game()    
+                                      game()
+                                      }
+                                      else{
+                                        msg.channel.send(`You need to use your medium attack at least 3 times!`)
+                                               game()
+                                      } 
                                     }
                                     else if (collected.first().content.toLowerCase() == '4') {
+                                      if(mediumUsed2 >= 3 && lightUsed2 >= 4 && heavyUsed2 >= 2){
                                       if(used2 == 0){
                                         used2++
                                       x = health1 - ultimate
@@ -198,8 +241,13 @@ client.on('message', msg=> {
                                       game()
 
                                     }
-                                    
                                   }
+                                  else{
+                                    msg.channel.send(`${player2}, you have to use all of your attacks before you're able to use your ultimate!`)
+                                    game()
+                                  }
+                                  }
+                                
                                   else if (collected.first().content.toLowerCase() == 'attacks') {
                                     msg.channel.send(`Your attacks are: \n\n 1: Light attack - from 1 - 6 damage; \n\n 2: Medium attack - from 1 - 11 damage; \n\n 3: Heavy attack - from 1 - 16 damage; \n\n\ 4: Heavy attack - 50 damage (1 use per game); `)
                                    game()
