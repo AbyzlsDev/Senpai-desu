@@ -1,0 +1,50 @@
+{
+  "name": "senpai-desu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "cheerio": "^1.0.0-rc.5",
+    "cron": "^1.8.2",
+    "discord-player": "^3.2.1",
+    "discord-ytdl-core": "^5.0.0",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "env": "^0.0.2",
+    "express": "^4.17.1",
+    "i": "^0.3.6",
+    "install": "^0.13.0",
+    "is-plain-obj": "^3.0.0",
+    "m3u8stream": "^0.8.3",
+    "merge-options": "^3.0.4",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "node-cron": "^2.0.3",
+    "node-fetch": "^2.6.1",
+    "node-osu": "^2.2.0",
+    "npm": "^6.14.11",
+    "opusscript": "^0.0.7",
+    "prism-media": "^1.2.3",
+    "soundcloud-scraper": "^4.0.2",
+    "spotify-url-info": "^2.2.0",
+    "superagent": "^6.1.0",
+    "youtube-sr": "^3.0.0",
+    "ytdl-core": "^4.4.3",
+    "ytsearcher": "^1.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M47rixisdevboi/Senpai-desu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M47rixisdevboi/Senpai-desu/issues"
+  },
+  "homepage": "https://github.com/M47rixisdevboi/Senpai-desu#readme"
+}
