@@ -227,7 +227,7 @@ client.on('message', msg=> {
                         }
                         
                         else{
-                          msg.channel.send(`${player2} has won!`)
+                          msg.channel.send(`${player1} has won!`)
                           return;
                         }
                          
