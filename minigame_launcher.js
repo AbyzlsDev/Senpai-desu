@@ -1,6 +1,6 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-const fight = require('../minigames/fight.js')
+const fight = require('./fight.js')
 
 
 
