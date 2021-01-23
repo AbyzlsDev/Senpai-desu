@@ -28,9 +28,19 @@ const command = args.shift().toLowerCase();
      
       
 
-     msg.channel.send('```You called for help! \n\n Here are the available commands: \n\n ?play <song name> - plays a song; \n\n ?pause - pauses the current song; \n\n ?leave - The bot leaves; \n\n ?resume - Resumes the current song; ```');
-     msg.channel.send("```?horny - Hmm... spicy, isn't it?; \n\n ?bakugo - Reserved for Val4ity; \n\n ?fight <@user> - fight untill death```");
+     msg.channel.send('```You called for help! \n\n Here are the available commands: \n\n ```');
+     msg.channel.send("```?horny - Hmm... spicy, isn't it?; \n\n ?bakugo - Reserved for Val4ity; \n\n ?fight <@user> - fight untill death; ?fighthelp - Explains the rules of the game```");
     }
+
+    if (command === 'fighthelp') {
+         
+    
+     
+      
+
+        msg.channel.send(`You have 4 main attacks: \n\n\ light attack; \n\n\ medium attack (you need to use your light attack 4 times before you're able to use the medium attack); \n\n\ heavy attack (you need to use your medium attack 3 times before you're able to use the heavy attack); \n\n\ ultimate attack (you have to use all of your attacks, including 2 times your heavy attack); \n\n\ Have fun! `);
+        
+       }
 
  
 });

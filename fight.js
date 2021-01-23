@@ -3,8 +3,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
+
+
+
+
+
 client.on('ready', () => {
     console.log("Fight ready")
+    
     });
 
 
@@ -162,6 +168,8 @@ client.on('message', msg=> {
                                   }).catch(() => {
                                           msg.reply(`${player1} failed to respond in time, what a turtle!`);
                                           msg.channel.send(`${player2} has won!`)
+                                          
+                                          
                                   });
                           return;
 
@@ -169,6 +177,7 @@ client.on('message', msg=> {
                       
                                 }else{
                                   msg.channel.send(`${player2} has won!`)
+                                  
                                   return;
                                 }
 
@@ -268,6 +277,11 @@ client.on('message', msg=> {
                                   }).catch(() => {
                                           msg.reply(`${player2} failed to respond in time, what a turtle!`);
                                           msg.channel.send(`${player1} has won!`)
+                                         
+                                           
+                                            
+                                           
+                                          
                                   });
                           return;
 
@@ -276,6 +290,9 @@ client.on('message', msg=> {
                         
                         else{
                           msg.channel.send(`${player1} has won!`)
+                          
+                           
+                            
                           return;
                         }
                          

@@ -1,6 +1,5 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 
 
@@ -65,7 +64,7 @@ client.on('message',  msg => {
 
 
 
-    client.on('message',  msg => {
+    client.on('message', async msg => {
         
         
         
@@ -85,16 +84,21 @@ client.on('message',  msg => {
  
         }
 
-        
+        if(msg.content == 'cry'){
+            msg.channel.send(`It'll be ok!`)
+            msg.channel.send('https://tenor.com/view/deku-cry-tears-anime-izuku-midoriya-gif-14926648')
+       
+ 
+        }
 
-        
+       
+      
          
     });
            
     
 
     
-   
 
 
     
