@@ -29,7 +29,7 @@ const command = args.shift().toLowerCase();
       
 
      msg.channel.send('```You called for help! \n\n Here are the available commands: \n\n ```');
-     msg.channel.send("```?horny - Hmm... spicy, isn't it?; \n\n ?bakugo - Reserved for Val4ity; \n\n ?fight <@user> - fight untill death; ?fighthelp - Explains the rules of the game; ?fuckbakugo - You should really think before using this one!;```");
+     msg.channel.send("```?horny - Hmm... spicy, isn't it?; \n\n ?bakugo - Reserved for Val4ity; \n\n ?fight <@user> - fight untill death; ?fighthelp - Explains the rules of the game; \n\n\ ?fuckbakugo - You should really think before using this one!;```");
     }
 
     if (command === 'fighthelp') {
