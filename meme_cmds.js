@@ -9,16 +9,21 @@ console.log("Meme cmds ready")
 });
 
 client.on('message',  msg => {
+    
+    
     const prefix = '?';
+
 
 
     const args = msg.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
 
+    if(!msg.content.startsWith(prefix) || msg.author.bot) return;
+
     if(command == 'horny'){
         var text = [" is horny! What a sick fuck!", " needs Anti-Horny tabs. Luckily, I brought some!"]
-    var img  = ["https://tenor.com/view/horny-jail-bonk-dog-hit-head-stop-being-horny-gif-17298755", "https://pbs.twimg.com/media/EGFj8CoWsAUraO0?format=jpg&name=small"]
-    var counter = Math.floor(Math.random() * text.length) 
+        var img  = ["https://tenor.com/view/horny-jail-bonk-dog-hit-head-stop-being-horny-gif-17298755", "https://pbs.twimg.com/media/EGFj8CoWsAUraO0?format=jpg&name=small"]
+        var counter = Math.floor(Math.random() * text.length) 
     
         if(msg.mentions.users.first()){
         
@@ -44,12 +49,37 @@ client.on('message',  msg => {
         msg.channel.send('https://tenor.com/view/bakugo-power-gif-13741841')
 
      } 
-      
-       
-     
+
 
       
     }
+
+    if(command == "fuckbakugo"){
+       let arrest = Math.floor(Math.random() * 100) + 1
+        let years = Math.floor(Math.random() * 100) + 1
+        
+        if (msg.author.id === "713314518297739274") {  
+        msg.channel.send(`Waiting for you babe, ${msg.author.toString()}!`)
+        msg.channel.send('https://tenor.com/view/bakugo-my-hero-academia-smile-handsome-gif-17142535')
+        }
+        else{
+        msg.channel.send(`Bakugo called the FBI!`)
+        msg.channel.send('https://cdn.discordapp.com/attachments/737727016635334716/803578593006452756/unknown.png')
+
+        if(arrest >= 50){
+        msg.channel.send(`Oh no, ${msg.author.toString()} got arrested for ${years} years! Reason - horniness`)
+
+        } 
+        else {
+            msg.channel.send(`${msg.author.toString()} got away! I guess it's their lucky day!`)
+        }
+
+        }
+
+
+        }
+
+    
     
 });
 

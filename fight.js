@@ -21,7 +21,7 @@ client.on('message', msg=> {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toLowerCase();
 
-    
+    if(!msg.content.startsWith(prefix) || msg.author.bot) return;
 
   if (command == "fight") {
         if(!msg.mentions.users.first()) return msg.channel.send(`${msg.author.toString()}, you forgot to mention your enemy, b-baka!`);
