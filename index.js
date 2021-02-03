@@ -7,6 +7,7 @@ const fight = require('./fight.js')
 
 
 
+
 const client = new Discord.Client();
 
 

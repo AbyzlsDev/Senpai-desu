@@ -79,6 +79,30 @@ client.on('message',  msg => {
 
         }
 
+        if (command === 'dick') {
+
+            let size = ["=", "==", "===", "====", "=====", "======", "=======", "========", "=========", "==========", "==========="]
+            let i;
+        
+            if(msg.mentions.users.first()){
+                  i = Math.floor(Math.random() * size.length)
+               
+                
+          
+                  msg.channel.send(`${msg.mentions.users.first().toString()}'s dick is -> 8${size[i]}D`);
+          
+               }
+               else if(msg.author){
+                   
+                  i = Math.floor(Math.random() * size.length)
+                   
+                    
+              
+                   msg.channel.send(`${msg.author.toString()}'s dick is -> 8${size[i]}D`);
+                   
+                   }
+              } 
+
     
     
 });
