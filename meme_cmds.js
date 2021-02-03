@@ -103,7 +103,7 @@ client.on('message',  msg => {
                }
                else if(msg.author.id == "438618320468705290"){
               
-                msg.channel.send(`${msg.author.id.toString()}'s dick is -> 8=================================D \n Your dick is so big, daddy!`);
+                msg.channel.send(`${msg.author.toString()}'s dick is -> 8=================================D \n Your dick is so big, daddy!`);
         
              }
              else if(msg.author.id == "713314518297739274"){
