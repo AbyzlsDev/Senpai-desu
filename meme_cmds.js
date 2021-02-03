@@ -84,7 +84,13 @@ client.on('message',  msg => {
             let size = ["=", "==", "===", "====", "=====", "======", "=======", "========", "=========", "==========", "==========="]
             let i;
         
-            if(msg.mentions.users.first()){
+            if(msg.author.id == "438618320468705290"){
+              
+                msg.channel.send(`Abyzls's dick is -> 8=================================D \n Your dick is so big, daddy!`);
+        
+             }
+
+           else if(msg.mentions.users.first()){
                   i = Math.floor(Math.random() * size.length)
                
                 
