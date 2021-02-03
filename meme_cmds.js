@@ -114,6 +114,16 @@ client.on('message',  msg => {
                    }
               } 
 
+              if (command == "choosegame"){
+                  
+              let game = ["osu!", "Valorant", "CS:GO", "Fortnite", "R6", "Minecraft", "Among Us", "League Of Legends", "Skribble.io", "VR Chat", "Apex Legends", "Roblox -  RP"]
+              let g = Math.floor(Math.random() * game.length);
+
+              msg.channel.send(`You're going to play ${game[g]}!`)
+
+              
+
+              }
     
     
 });
