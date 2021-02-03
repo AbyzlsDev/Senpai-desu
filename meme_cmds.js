@@ -88,27 +88,18 @@ client.on('message',  msg => {
 
             if(msg.mentions.users.first()){
                   
-                  if(msg.mentions.users.first().id == "713314518297739274"){
-              
-                    msg.channel.send(`${msg.mentions.users.first().toString()}'s dick is -> 8=D`);
-                  }
+                  
             
                
-                else{
+            
                     i = Math.floor(Math.random() * size.length) 
                   msg.channel.send(`${msg.mentions.users.first().toString()}'s dick is -> 8${size[i]}D`);
 
-                }
           
                }
                else if(msg.author.id == "438618320468705290"){
               
                 msg.channel.send(`${msg.author.toString()}'s dick is -> 8=================================D \n Your dick is so big, daddy!`);
-        
-             }
-             else if(msg.author.id == "713314518297739274"){
-              
-                msg.channel.send(`${msg.author.toString()}'s dick is -> 8=D`);
         
              }
 
