@@ -3,6 +3,20 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
+const fighthelp = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle('Fight help')
+        .addFields(
+            {name: `How to play`, value: `To join a match you have to type ${"`yes`"} (you have 60 seconds to accept the battle). After that the match starts. Each one of you have 1 turn per round. You can choose an abilitiy dependent on which round you're on and how many abilies you have used. The goal is simple, eliminate your opponent. Good Luck!` },
+            { name: `Light attack`, value: `Activated by typing number ${"`1`"}; Deals 1 - 6 damage; Can be used at all times`  },
+            { name: `Medium attack`, value: `Activated by typing number ${"`2`"}; Deals 1 - 11 damage; To use this attack you need to use your light attack at least 4 times`},
+            { name: `Heavy attack`, value: `Activated by typing number ${"`3`"}; Deals 1 - 16 damage; To use this attack you need to use your medium attack at least 3 times`},
+            { name: `Ultimate attack`, value: `Activated by typing number ${"`4`"}; Deals 50 damage; To use this attack you need to use all of your attacks (light - 4 times; medium - 3 times; heavy - 2 times); You can only use this attack once a game!`},
+        )
+
+      
+
+        
 
 
 
@@ -30,7 +44,7 @@ client.on('message', msg=> {
 
                 let {guild} = msg;
 
-                mUser.send(`${msg.author.username} has requested to duel you in ${guild.name}!`)
+                mUser.send(`${msg.author.username} has requested to duel you in ${guild.name}! To accept the duel type ${"``yes`"}!`)
 
                   msg.reply(`${mUser.toString()}, do you accept the duel?`);
                   msg.channel.awaitMessages(m => m.author.id === mUser.id,
@@ -154,7 +168,7 @@ client.on('message', msg=> {
                                             return;   
                                           }
                                           else if (collected.first().content.toLowerCase() == 'attacks') {
-                                            msg.channel.send(`Your attacks are: \n\n 1: Light attack - from 1 - 6 damage; \n\n 2: Medium attack - from 1 - 11 damage; \n\n 3: Heavy attack - from 1 - 16 damage; \n\n\  4: Heavy attack - 50 damage (1 use per game); \n\n`)
+                                            msg.channel.send(fighthelp)          
                                            game()
                                           }
                                           else {
@@ -258,7 +272,7 @@ client.on('message', msg=> {
                                   }
                                 
                                   else if (collected.first().content.toLowerCase() == 'attacks') {
-                                    msg.channel.send(`Your attacks are: \n\n 1: Light attack - from 1 - 6 damage; \n\n 2: Medium attack - from 1 - 11 damage; \n\n 3: Heavy attack - from 1 - 16 damage; \n\n\ 4: Heavy attack - 50 damage (1 use per game); `)
+                                    msg.channel.send(fighthelp)
                                    game()
                                   }
                                   

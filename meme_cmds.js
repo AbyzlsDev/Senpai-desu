@@ -3,7 +3,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 
-
+        
+       
 client.on('ready', () => {
 console.log("Meme cmds ready")
 });
@@ -22,31 +23,49 @@ client.on('message',  msg => {
 
     if(command == 'horny'){
         var text = [" is horny! What a sick fuck!", " needs Anti-Horny tabs. Luckily, I brought some!"]
-        var img  = ["https://tenor.com/view/horny-jail-bonk-dog-hit-head-stop-being-horny-gif-17298755", "https://pbs.twimg.com/media/EGFj8CoWsAUraO0?format=jpg&name=small"]
+        var img  = ["https://media1.tenor.com/images/6493bee2be7ae168a5ef7a68cf751868/tenor.gif?itemid=17298755", "https://pbs.twimg.com/media/EGFj8CoWsAUraO0?format=jpg&name=small"]
         var counter = Math.floor(Math.random() * text.length) 
+
+        
     
         if(msg.mentions.users.first()){
         
-            msg.channel.send(msg.mentions.users.first().toString() + text[counter])
-            msg.channel.send(img[counter])
+        const horny = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setDescription(msg.mentions.users.first().toString() + text[counter])
+        .setImage(img[counter])
+        msg.channel.send(horny)
+           
             return;
         }
         else if (msg.author) {
-           
-            msg.channel.send(msg.author.toString() + text[counter] )
-            msg.channel.send(img[counter])
+            const horny1 = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setDescription(msg.author.toString() + text[counter])
+            .setImage(img[counter])
+            msg.channel.send(horny1)
             return;
             }
     }
 
     if(command == "bakugo"){
         if (msg.author.id === "713314518297739274") {
-        msg.channel.send("Hey baby!")
-        msg.channel.send('https://tenor.com/view/bakugo-anime-hero-academy-gif-10939343')
+            const bakugo1 = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setDescription("Hey baby!")
+        .setImage('https://media.tenor.com/images/8fa24f7d79598c7710c38a6697583ca1/tenor.gif')
+
+        msg.channel.send(bakugo1)
+       
         }
      else   {
-        msg.channel.send('SHINEE!')
-        msg.channel.send('https://tenor.com/view/bakugo-power-gif-13741841')
+
+        const bakugo = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setDescription("SHINEE!")
+        .setImage('https://media.tenor.com/images/c5e312b7347bd035ad471de27fdf93d0/tenor.gif')
+        msg.channel.send(bakugo)
+       
 
      } 
 
@@ -57,21 +76,40 @@ client.on('message',  msg => {
     if(command == "fuckbakugo"){
        let arrest = Math.floor(Math.random() * 100) + 1
         let years = Math.floor(Math.random() * 100) + 1
+
+        const fuckbakugo1 = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setDescription(`Waiting for you babe, ${msg.author.toString()}!`)
+        .setImage('https://media.tenor.com/images/b5cda1049b6a5c5f88f1f0f3d18c7d65/tenor.gif')
         
         if (msg.author.id === "713314518297739274") {  
-        msg.channel.send(`Waiting for you babe, ${msg.author.toString()}!`)
-        msg.channel.send('https://tenor.com/view/bakugo-my-hero-academia-smile-handsome-gif-17142535')
+        msg.channel.send(fuckbakugo1)
+        
         }
         else{
-        msg.channel.send(`Bakugo called the FBI!`)
-        msg.channel.send('https://cdn.discordapp.com/attachments/737727016635334716/803578593006452756/unknown.png')
+
+            const fuckbakugo = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setDescription(`Bakugo called the FBI!`)
+        .setImage('https://cdn.discordapp.com/attachments/737727016635334716/803578593006452756/unknown.png')
+
+        msg.channel.send(fuckbakugo)
+        
 
         if(arrest >= 50){
-        msg.channel.send(`Oh no, ${msg.author.toString()} got arrested for ${years} years! Reason - horniness`)
+            const arrest1 = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setDescription(`Oh no, ${msg.author.toString()} got arrested for ${years} years! Reason - horniness`)
+            
+
+        msg.channel.send(arrest1)
 
         } 
         else {
-            msg.channel.send(`${msg.author.toString()} got away! I guess it's their lucky day!`)
+            const arrest = new Discord.MessageEmbed()
+            .setColor('#0099ff')
+            .setDescription(`${msg.author.toString()} got away! I guess it's their lucky day!`)
+            msg.channel.send(arrest)
         }
 
         }
@@ -88,38 +126,54 @@ client.on('message',  msg => {
 
             if(msg.mentions.users.first()){
                   
-                  
-            
-               
-            
+                
                     i = Math.floor(Math.random() * size.length) 
-                  msg.channel.send(`${msg.mentions.users.first().toString()}'s dick is -> 8${size[i]}D`);
+                  msg.channel.send(dick1);
+
+                  const dick1 = new Discord.MessageEmbed()
+                .setColor('#0099ff')
+                .setDescription(`${msg.mentions.users.first().toString()}'s dick is -> 8${size[i]}D`)
 
           
                }
+               
                else if(msg.author.id == "438618320468705290"){
+
+                const dick2 = new Discord.MessageEmbed()
+                .setColor('#0099ff')
+                .setDescription(`${msg.author.toString()}'s dick is -> 8=================================D \n Your dick is so big, daddy!`)
               
-                msg.channel.send(`${msg.author.toString()}'s dick is -> 8=================================D \n Your dick is so big, daddy!`);
+                msg.channel.send(dick2);
         
              }
 
                else if(msg.author){
+
+                
                    
                   i = Math.floor(Math.random() * size.length)
                    
-                    
+                  const dick3 = new Discord.MessageEmbed()
+                  .setColor('#0099ff')
+                  .setDescription(`${msg.author.toString()}'s dick is -> 8${size[i]}D`)
               
-                   msg.channel.send(`${msg.author.toString()}'s dick is -> 8${size[i]}D`);
+                   msg.channel.send(dick3);
                    
                    }
               } 
 
               if (command == "choosegame"){
+
+              
                   
               let game = ["osu!", "Valorant", "CS:GO", "Fortnite", "R6", "Minecraft", "Among Us", "League Of Legends", "Skribble.io", "VR Chat", "Apex Legends", "Roblox -  RP"]
               let g = Math.floor(Math.random() * game.length);
 
-              msg.channel.send(`You're going to play ${game[g]}!`)
+              const game1 = new Discord.MessageEmbed()
+              .setColor('#0099ff')
+              .setDescription(`You're going to play ${game[g]}!`)
+
+              msg.channel.send(game1)
 
               
 
@@ -145,23 +199,22 @@ client.on('message',  msg => {
         
     
         if(msg.content == 'faka u' || msg.content == 'fuck you' || msg.content == 'fuck u' ||  msg.content == 'ebi sa'){
-            msg.channel.send('no u')
-            msg.channel.send('https://tenor.com/view/reverse-card-uno-uno-cards-gif-13032597')
-       
+            msg.channel.send('no u' + 'https://tenor.com/view/reverse-card-uno-uno-cards-gif-13032597')
+            
     
             
         }
     
         if(msg.content == 'thx' || msg.content == 'Thanks!' || msg.content == 'thanks'){
-            msg.channel.send('No Problem!')
-            msg.channel.send('https://tenor.com/view/no-problem-anime-girl-heart-happy-gif-15653269')
+            msg.channel.send('No Problem!' + 'https://tenor.com/view/no-problem-anime-girl-heart-happy-gif-15653269')
+            
        
  
         }
 
         if(msg.content == 'cry'){
-            msg.channel.send(`It'll be ok!`)
-            msg.channel.send('https://tenor.com/view/deku-cry-tears-anime-izuku-midoriya-gif-14926648')
+            msg.channel.send(`It'll be ok!` + 'https://tenor.com/view/deku-cry-tears-anime-izuku-midoriya-gif-14926648')
+            
        
  
         }
