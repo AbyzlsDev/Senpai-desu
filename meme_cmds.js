@@ -178,6 +178,41 @@ client.on('message',  msg => {
               
 
               }
+
+              if (command == "mangal"){
+
+                if(msg.member.roles.cache.find(r => r.id === "795236730667008011")) {
+
+                let mangal = Math.floor(Math.random() * 100);
+                let metal = Math.floor(Math.random() * 100);
+  
+                const mangal1 = new Discord.MessageEmbed()
+                .setColor('#0099ff')
+                .setDescription(`Ти си ${mangal}% мангал и ти току-що открадна ${metal} метал.`)
+  
+                msg.channel.send(mangal1)
+
+                } 
+                else {
+                    let mangal = Math.floor(Math.random() * 100);
+                    let metal = Math.floor(Math.random() * 100);
+      
+                    const mangal2 = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setDescription(`You're ${mangal}% gypsy and you just stole ${metal} iron.`)
+
+                    msg.channel.send(mangal2)
+
+                }
+              
+                  
+                
+  
+                
+  
+                }
+
+                
     
     
 });
