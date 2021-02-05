@@ -221,7 +221,7 @@ client.on('message',  msg => {
                     const cordiq1 = new Discord.MessageEmbed()
                     .setColor('#0099ff')
                     .setDescription(`${msg.author.toString()} is member of the Svetata Cordiq`)
-                    .setImage('https://media1.tenor.com/images/97b76417cd056e79f7c420a0194d16fc/tenor.gif?itemid=20250900')
+                    .setImage('https://cdn.discordapp.com/attachments/795000131132588053/807297220415062038/image0.jpg')
       
                     msg.channel.send(cordiq1)
     
