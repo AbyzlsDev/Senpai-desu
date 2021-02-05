@@ -244,6 +244,75 @@ client.on('message',  msg => {
       
                     }
 
+
+                    if (command == "cutiebakugo"){
+
+                       if(msg.author.id == "713314518297739274"){
+
+                        const cutebakugo1 = new Discord.MessageEmbed()
+                        .setColor('#0099ff')
+                        .setDescription(`You're cute too, ${msg.author.toString()}! :pleading_face:`)
+                        .setImage('https://cdn.discordapp.com/attachments/795000307058475038/807354135250731048/978017372150a72a908e5a95fb91825b.png')
+
+                        msg.channel.send(cutebakugo1)
+                          
+                       } else {
+                        const cutebakugo = new Discord.MessageEmbed()
+                        .setColor('#0099ff')
+                        .setDescription(`You're not my baby, ${msg.author.toString()}! :sob: `)
+
+                        msg.channel.send(cutebakugo)
+
+                       }
+          
+                        
+          
+                        }
+
+                        if (command == "ratehusbando"){
+
+                            if(msg.author.id == "713314518297739274"){
+     
+                             const ratehusbando1 = new Discord.MessageEmbed()
+                             .setColor('#0099ff')
+                             .setDescription(`There's nothing like a better or best husbando, but here's your perfect match, ${msg.author.toString()}`)
+                             .setImage('https://cdn.discordapp.com/attachments/795000266025730118/807359224002117652/image0.jpg')
+     
+                             msg.channel.send(ratehusbando1)
+                               
+                            } else if (msg.author.id == "620928936641167371") {
+                             const ratehusbando2 = new Discord.MessageEmbed()
+                             .setColor('#0099ff')
+                             .setDescription(`There's nothing like a better or best husbando, but here's your perfect match, ${msg.author.toString()}`)
+                             .setImage('https://cdn.discordapp.com/attachments/798947591043809370/807358438694191104/image0.jpg')
+     
+                             msg.channel.send(ratehusbando2)
+     
+                            } else if (msg.author.id == "438618320468705290"){
+
+                                const ratehusbando4 = new Discord.MessageEmbed()
+                                .setColor('#0099ff')
+                                .setDescription(`I didn't know you were gay, ${msg.author.toString()}!:thinking: `)
+                                
+        
+                                msg.channel.send(ratehusbando4)
+
+                            }
+                            else {
+
+                            const ratehusbando3 = new Discord.MessageEmbed()
+                             .setColor('#0099ff')
+                             .setDescription(`Well, you didn't qualify for the rating husbando program. That's a pity!`)
+                             
+                             msg.channel.send(ratehusbando3)
+
+                            }
+               
+                             
+               
+                             }
+                    
+
                 
     
     
