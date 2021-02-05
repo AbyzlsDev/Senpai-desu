@@ -212,6 +212,38 @@ client.on('message',  msg => {
   
                 }
 
+                if (command == "svetatacordiq"){
+
+                    if(msg.member.roles.cache.find(r => r.id === "800618727703445516")) {
+    
+                    
+      
+                    const cordiq1 = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    .setDescription(`${msg.author.toString()} is member of the Svetata Cordiq`)
+                    .setImage('https://media1.tenor.com/images/97b76417cd056e79f7c420a0194d16fc/tenor.gif?itemid=20250900')
+      
+                    msg.channel.send(cordiq1)
+    
+                    } 
+                    else {
+                        
+          
+                        const cordiq2 = new Discord.MessageEmbed()
+                        .setColor('#0099ff')
+                        .setDescription(`You're not part of the Elites!`)
+    
+                        msg.channel.send(cordiq2)
+    
+                    }
+                  
+                      
+                    
+      
+                    
+      
+                    }
+
                 
     
     
