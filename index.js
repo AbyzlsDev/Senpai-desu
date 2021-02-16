@@ -3,6 +3,9 @@ const Discord = require('discord.js');
 const commands = require('./commands')
 const meme_cmds = require('./meme_cmds')
 const fight = require('./fight.js')
+const fight_beta = require('./fight_beta.js')
+const bday = require('./cr_bd.js')
+
 
 
 

@@ -182,24 +182,102 @@ client.on('message',  msg => {
               if (command == "mangal"){
 
                 if(msg.member.roles.cache.find(r => r.id === "795236730667008011")) {
+                    
+
+                    
 
                 let mangal = Math.floor(Math.random() * 100);
-                let metal = Math.floor(Math.random() * 100);
+
+                let metal 
+
+                let decide = [2, 3]
+
+                let y = Math.floor(Math.random() * decide.length)
+                
+                let x 
+
+                let choose = [1, 2]
+
+                let z = Math.floor(Math.random() * choose.length)
+            
+                if(choose[z] == 1){
+
+                metal = mangal / decide[y] - decide[y] 
+
+                }
+                else if (choose[z] == 2){
+
+                    metal = mangal / decide[y] + decide[y]
+                }
+
+                if(metal > 0) {
+                
+                
+                 x = Math.round(metal)
+
+                }
+
+                else if(metal < 0) {
+                    
+                    x = 1
+                
+                }
+
+                
+                
+
+
+                
   
                 const mangal1 = new Discord.MessageEmbed()
                 .setColor('#0099ff')
-                .setDescription(`Ти си ${mangal}% мангал и ти току-що открадна ${metal} метал.`)
+                .setDescription(`${msg.author.toString()}, ти си ${mangal}% мангал и ти току-що открадна ${x} метал.`)
   
                 msg.channel.send(mangal1)
 
                 } 
                 else {
+
                     let mangal = Math.floor(Math.random() * 100);
-                    let metal = Math.floor(Math.random() * 100);
+
+                    let metal 
+    
+                    let decide = [2, 3]
+    
+                    let y = Math.floor(Math.random() * decide.length)
+                    
+                    let x 
+    
+                    let choose = [1, 2]
+    
+                    let z = Math.floor(Math.random() * choose.length)
+                
+                    if(choose[z] == 1){
+    
+                    metal = mangal / decide[y] - decide[y] 
+    
+                    }
+                    else if (choose[z] == 2){
+    
+                        metal = mangal / decide[y] + decide[y]
+                    }
+    
+                    if(metal > 0) {
+                    
+                    
+                     x = Math.round(metal)
+                     
+                    }
+    
+                    else if(metal < 0) {
+                        
+                        x = 1
+                    
+                    }
       
                     const mangal2 = new Discord.MessageEmbed()
                     .setColor('#0099ff')
-                    .setDescription(`You're ${mangal}% gypsy and you just stole ${metal} iron.`)
+                    .setDescription(`You're ${mangal}% gypsy and you just stole ${x} iron.`)
 
                     msg.channel.send(mangal2)
 
