@@ -44,7 +44,7 @@ client.on('message', msg=> {
 
                 let {guild} = msg;
 
-                mUser.send(`${msg.author.username} has requested to duel you in ${guild.name}! To accept the duel type ${"``yes`"}!`)
+                mUser.send(`${msg.author.username} has requested to duel you in ${guild.name}! To accept the duel type ${"`yes`"}!`)
 
                   msg.reply(`${mUser.toString()}, do you accept the duel?`);
                   msg.channel.awaitMessages(m => m.author.id === mUser.id,

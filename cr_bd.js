@@ -33,7 +33,7 @@ const command = args.shift().toLowerCase();
 
     const help = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.setTitle(`My Senpai's birthdays is on 16th February and there are ${Math.floor((birthday - today) / (1000*60*60*24))} days left until his birthday! Don't forget it! `)
+	.setTitle(`My Senpai's birthdays is on 16th February and there are ${Math.floor((birthday - today) / (1000*60*60*24))} days left until his birthday! Ara - ara`)
     
      
      msg.channel.send(help);
