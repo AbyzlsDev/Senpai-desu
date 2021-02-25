@@ -24,7 +24,7 @@ const fighthelp = new Discord.MessageEmbed()
 
 
 client.on('ready', () => {
-    console.log("Fight ready")
+    console.log("Fight beta ready")
     
     });
 
@@ -63,6 +63,11 @@ client.on('message',  msg=> {
 
                               let min
 
+                              let player, enemy, health, type
+
+                              let sent = 0
+
+
                               
 
                                let turn = 1
@@ -85,6 +90,10 @@ client.on('message',  msg=> {
                               const ultimate = 30
 
                           const endD = ["`end`", "`attacks`"]
+
+                          let alrtMSG
+                          
+
                           
 
 
@@ -95,6 +104,42 @@ client.on('message',  msg=> {
                                     game();
 
                       function game() {
+
+                        let  MSG = new Discord.MessageEmbed()
+                        .setColor('#0099ff')
+                        .setDescription(`${player} used their light attack and dealt ${type} damage to ${enemy} and they have ${health} health left!`)
+
+                        let alerts = new Discord.MessageEmbed()
+                        .setColor('#DC143C')
+                        .setDescription(alrtMSG)
+                        
+
+
+                        if(sent == 0){
+
+                          sent = 1
+
+                        }
+                        else if(sent == 2) {
+
+                          
+
+                          sent = 0
+                          msg.channel.send(alerts)
+                          .then(msg => {
+                            msg.delete({ timeout: 30000 })
+                          }) 
+
+                          
+                          
+                         
+
+                        }
+                        else if(sent == 1){
+                          
+                                     msg.channel.send(MSG)
+                                            
+                                          }
                                
                                 
                               if(turn == 1){
@@ -121,21 +166,10 @@ client.on('message',  msg=> {
                                             turn++
                                             lightUsed1++
 
-                                            let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player1} used their light attack and dealt ${light} damage to ${player2} and they have ${health2} health left!`)
-
-
-                       
-
-                        
-                                     msg.channel.send(MSG)
-                                            .then(msg => {
-                                              msg.delete({ timeout: 15000 })
-                                            }) 
-                                  
-                                       
-                                       
+                                            player = player1
+                                            enemy = player2
+                                            health = health2
+                                            type = "light"
                                        
                                             
                                             
@@ -150,19 +184,17 @@ client.on('message',  msg=> {
                                             
                                             turn++
                                             mediumUsed1++
-                                            let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player1} used their medium attack and dealt ${medium} damage to ${player2} and they have ${health2} health left!`)
-                        msg.channel.send(MSG)
-          
-                                            game()  
-                                            }
-                                            else{
-                                               msg.channel.send(`You need to use your light attack at least 4 times!`)
-                                               .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+
+                                            player = player1
+                                            enemy = player2
+                                            health = health2
+                                            type = "medium"
+
                                                game()
+                                            }else{
+                                              sent = 2
+                                            alrtMSG = `${player1}, you need to use your medium attack at least ${4 - lightUsed1} more times!`
+                                                 game()
                                             }  
                                           }
                                           else if (collected.first().content.toLowerCase() == '3') {
@@ -173,25 +205,21 @@ client.on('message',  msg=> {
 
                                             health2 = health2 - heavy
                                             
-                                            let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player1} used their heavy attack and dealt ${heavy} damage to ${player2} and they have ${health2} health left!`)
+                                            player = player1
+                                            enemy = player2
+                                            health = health2
+                                            type = "heavy"
                        
                                             turn++
                                             heavyUsed1++
 
-                                            msg.channel.send(MSG)
-                                            .then(msg => {
-                                              msg.delete({ timeout: 15000 })
-                                            }) 
+                                            
           
                                             game()    
                                           }
                                           else{
-                                            msg.channel.send(`You need to use your medium attack at least 3 times!`)
-                                            .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                            sent = 2
+                                            alrtMSG = `${player1}, you need to use your medium attack at least ${3 - mediumUsed1} more times!`
                                                game()
                                           }
                                         }
@@ -201,24 +229,22 @@ client.on('message',  msg=> {
                                               used1++
                                             health2 = health2 - ultimate
                                             
-                                            mediumUsed2 = 0
-                                            lightUsed2 = 0
-                                            heavyUsed2 = 0
+                                            mediumUsed1 = 0
+                                            lightUsed1 = 0
+                                            heavyUsed1 = 0
                                       
                                      
                                       
-                                      let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player1} used their ultimate attack and dealt ${ultimate} damage to ${player2} and they have ${health2} health left!`)
+                                            player = player1
+                                            enemy = player2
+                                            health = health2
+                                            type = "ultimate"
 
                         let  reset = new Discord.MessageEmbed()
                         .setColor('#DC143C')
                         .setDescription(`${player1}'s abilites have been reset!`)
                                   
-                                            msg.channel.send(MSG)
-                                            .then(msg => {
-                                              msg.delete({ timeout: 15000 })
-                                            }) 
+                                            
 
                                             msg.channel.send(reset)
                                             .then(msg => {
@@ -231,23 +257,22 @@ client.on('message',  msg=> {
                                             } 
                                             
                                             else{
-                                              msg.channel.send(`${player1}, you have already used your ultimate attack!`)
-                                              .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                              sent = 2
+                                              alrtMSG = `${player1}, you have already used your ultimate attack!`
+                                              
                                               game()
         
                                             }
                                           }else{
-                                            msg.channel.send(`${player1}, you have to use all of your attacks before you're able to use your ultimate!`)
-                                            .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                            sent = 2
+                                            alrtMSG = `${player1}, you have to use all of your attacks before you're able to use your ultimate!`
+                                            
                                             game()
                                           }
                                         }
       
                                           else if (collected.first().content.toLowerCase() == 'end') {
+                                            
                                             msg.channel.send(`Game ending!`)
                                             .then(msg => {
     msg.delete({ timeout: 15000 })
@@ -255,14 +280,14 @@ client.on('message',  msg=> {
                                             return;   
                                           }
                                           else if (collected.first().content.toLowerCase() == 'attacks') {
-                                            msg.channel.send(fighthelp)          
+                                            msg.channel.send(fighthelp)
+                                            sent = 0         
                                            game()
                                           }
                                           else {
-                                            msg.channel.send(`Something went wrong! Try again!`)
-                                            .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                            sent = 2
+                                            alrtMSG = `${player1}, something went wrong! Try again!`
+                                            
                                             return game();
 
                                           }
@@ -270,7 +295,8 @@ client.on('message',  msg=> {
                                           
                                           
                                   }).catch(() => {
-                                          msg.channel.send(`${player1} failed to respond in time, what a turtle! ${player2} has won!`);
+                                    alrtMSG = `${player1} failed to respond in time, what a turtle! ${player2} has won!`
+                                    msg.channel.send(alerts)
                                          
                                           
                                           
@@ -280,7 +306,7 @@ client.on('message',  msg=> {
                           
                       
                                 }else{
-                                  msg.channel.send(`${player2} has won!`)
+                                  msg.channel.send(`${player2} has won! :crown:`)
                                   
                                   return;
                                 }
@@ -315,15 +341,10 @@ client.on('message',  msg=> {
                                       turn--
                                       lightUsed2++
                                       
-                                      let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player2} used their light attack and dealt ${light} damage to ${player1} and they have ${health1} health left!`)
-                                  
-                        
-                                            msg.channel.send(MSG)
-                                            .then(msg => {
-                                              msg.delete({ timeout: 15000 })
-                                            }) 
+                                      player = player2
+                                      enemy = player1
+                                      health = health1
+                                      type = "light"
     
                                       game()    
                                     } 
@@ -337,22 +358,18 @@ client.on('message',  msg=> {
                                       
                                       turn--
                                       mediumUsed2++
-                                      let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player2} used their medium attack and dealt ${medium} damage to ${player1} and they have ${health1} health left!`)
-                                  
-                        msg.channel.send(MSG)
-                        .then(msg => {
-                          msg.delete({ timeout: 15000 })
-                        }) 
+
+                                      player = player2
+                                      enemy = player1
+                                      health = health1
+                                      type = "medium"
     
                                       game()   
                                       }
                                       else{
-                                        msg.channel.send(`You need to use your light attack at least 4 times!`)
-                                        .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                        sent = 2
+                                        alrtMSG = `${player2}, you need to use your light attack at least ${4 - lightUsed2} more times!`
+                                        
                                                game()
                                       } 
                                     }
@@ -366,24 +383,18 @@ client.on('message',  msg=> {
                                       
                                       turn--
                                       heavyUsed2++
-                                      let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player2} used their heavy attack and dealt ${heavy} damage to ${player1} and they have ${health1} health left!`)
-                                  
-                                            
 
-                                            msg.channel.send(MSG)
-                                            .then(msg => {
-                                              msg.delete({ timeout: 15000 })
-                                            }) 
-    
+                                      player = player2
+                                      enemy = player1
+                                      health = health1
+                                      type = "heavy"
+                                      
                                       game()
                                       }
                                       else{
-                                        msg.channel.send(`You need to use your medium attack at least 3 times!`)
-                                        .then(msg => {
-    msg.delete({ timeout: 15000 })
-  }) 
+                                        sent = 2
+                                        alrtMSG = `${player2}, you need to use your medium attack at least ${3 - mediumUsed2} more times!`
+                                       
                                                game()
                                       } 
                                     }
@@ -392,24 +403,24 @@ client.on('message',  msg=> {
                                       if(used2 == 0){
                                         used2++
                                       health1 = health1 - ultimate
-                                      mediumUsed2 = 0
-                                      lightUsed2 = 0
-                                      heavyUsed2 = 0
+                                      mediumUsed1 = 0
+                                      lightUsed1 = 0
+                                      heavyUsed1 = 0
                                       
                                      
                                       turn--
-                                      let  MSG = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setDescription(`${player2} used their ultimate attack and dealt ${ultimate} damage to ${player1} and they have ${health1} health left!`)
+
+                                      player = player2
+                                      enemy = player1
+                                      health = health1
+                                      type = "ultimate"
+                                      
 
                         let  reset = new Discord.MessageEmbed()
                         .setColor('#DC143C')
                         .setDescription(`${player2}'s abilites have been reset!`)
                                   
-                                            msg.channel.send(MSG)
-                                            .then(msg => {
-                                              msg.delete({ timeout: 15000 })
-                                            }) 
+    
 
                                             msg.channel.send(reset)
                                             .then(msg => {
@@ -420,25 +431,24 @@ client.on('message',  msg=> {
                                       game()    
                                     }
                                     else{
-                                      msg.channel.send(`${player2}, you have already used your ultimate attack!`)
-                                      .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                      sent = 2
+                                      alrtMSG = `${player2}, you have already used your ultimate attack!`
+                                      
                                       game()
 
                                     }
                                   }
                                   else{
-                                    msg.channel.send(`${player2}, you have to use all of your attacks before you're able to use your ultimate!`)
-                                    .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                    sent = 2
+                                    alrtMSG = `${player2}, you have to use all of your attacks before you're able to use your ultimate!`
+                                    
                                     game()
                                   }
                                   }
                                 
                                   else if (collected.first().content.toLowerCase() == 'attacks') {
                                     msg.channel.send(fighthelp)
+                                    sent = 0
                                    game()
                                   }
                                   
@@ -450,10 +460,9 @@ client.on('message',  msg=> {
                                      return;   
                                   }
                                   else {
-                                    msg.channel.send(`Something went wrong! Try again!`)
-                                    .then(msg => {
-    msg.delete({ timeout: 15000 })
-  })
+                                    alrtMSG = `${player2}, Something went wrong! Try again!`
+                                    sent = 2
+                                    
                                     return game();
 
                                   }
@@ -461,7 +470,8 @@ client.on('message',  msg=> {
                                   
                                   
                                   }).catch(() => {
-                                          msg.channel.send(`${player2} failed to respond in time, what a turtle! ${player1} has won!`)
+                                    alrtMSG = `${player2} failed to respond in time, what a turtle! ${player1} has won!`
+                                    msg.channel.send(alerts)
 
                                          
                                            
@@ -475,7 +485,7 @@ client.on('message',  msg=> {
                         }
                         
                         else{
-                          msg.channel.send(`${player1} has won!`)
+                          msg.channel.send(`${player1} has won! :crown:`)
                           
                           
                            
