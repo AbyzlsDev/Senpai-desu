@@ -128,11 +128,12 @@ client.on('message',  msg => {
                   
                 
                     i = Math.floor(Math.random() * size.length) 
-                  msg.channel.send(dick1);
+                  
 
                   const dick1 = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 .setDescription(`${msg.mentions.users.first().toString()}'s dick is -> 8${size[i]}D`)
+                msg.channel.send(dick1);
 
           
                }
