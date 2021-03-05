@@ -63,7 +63,7 @@ client.on('message',  msg=> {
 
                               let min
 
-                              let player, enemy, health, type
+                              let player, enemy, health, type, damage
 
                               let sent = 0
 
@@ -107,7 +107,7 @@ client.on('message',  msg=> {
 
                         let  MSG = new Discord.MessageEmbed()
                         .setColor('#0099ff')
-                        .setDescription(`${player} used their light attack and dealt ${type} damage to ${enemy} and they have ${health} health left!`)
+                        .setDescription(`${player} used their ${type} attack and dealt ${damage} damage to ${enemy} and they have ${health} health left!`)
 
                         let alerts = new Discord.MessageEmbed()
                         .setColor('#DC143C')
@@ -170,6 +170,7 @@ client.on('message',  msg=> {
                                             enemy = player2
                                             health = health2
                                             type = "light"
+                                            damage = light
                                        
                                             
                                             
@@ -189,6 +190,7 @@ client.on('message',  msg=> {
                                             enemy = player2
                                             health = health2
                                             type = "medium"
+                                            damage = medium
 
                                                game()
                                             }else{
@@ -209,6 +211,7 @@ client.on('message',  msg=> {
                                             enemy = player2
                                             health = health2
                                             type = "heavy"
+                                            damage = heavy
                        
                                             turn++
                                             heavyUsed1++
@@ -239,6 +242,7 @@ client.on('message',  msg=> {
                                             enemy = player2
                                             health = health2
                                             type = "ultimate"
+                                            damage = ultimate
 
                         let  reset = new Discord.MessageEmbed()
                         .setColor('#DC143C')
@@ -345,6 +349,7 @@ client.on('message',  msg=> {
                                       enemy = player1
                                       health = health1
                                       type = "light"
+                                      damage = light
     
                                       game()    
                                     } 
@@ -354,6 +359,7 @@ client.on('message',  msg=> {
                                       medium = Math.floor(Math.random() * 10)
                                       if(medium < min) medium = min
                                       health1 = health1 - medium
+
                                       
                                       
                                       turn--
@@ -363,6 +369,7 @@ client.on('message',  msg=> {
                                       enemy = player1
                                       health = health1
                                       type = "medium"
+                                      damage = medium
     
                                       game()   
                                       }
@@ -388,6 +395,7 @@ client.on('message',  msg=> {
                                       enemy = player1
                                       health = health1
                                       type = "heavy"
+                                      damage = heavy
                                       
                                       game()
                                       }
@@ -414,6 +422,7 @@ client.on('message',  msg=> {
                                       enemy = player1
                                       health = health1
                                       type = "ultimate"
+                                      damage = ultimate
                                       
 
                         let  reset = new Discord.MessageEmbed()

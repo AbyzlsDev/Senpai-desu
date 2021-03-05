@@ -390,6 +390,37 @@ client.on('message',  msg => {
                              
                
                              }
+
+                             if (command == "goddess"){
+
+                                let goddess =  new Discord.MessageEmbed()
+                                .setColor('#0099ff')
+                             .setDescription(`Praise the Goddess! (brat molq ta dai pari za pasti che nema jzhelezo ;-;)`)
+                             
+
+                             msg.channel.send(goddess)
+
+                                
+                                 
+                   
+                                 }  
+                                 
+                                 if (command == "araara"){
+
+                                    
+             
+                                     const cutebakugo1 = new Discord.MessageEmbed()
+                                     .setColor('#0099ff')
+                                     .setDescription(`Fuck off, you horny cunt!`)
+                                     
+             
+                                     msg.channel.send(cutebakugo1)
+                                       
+                                    
+                       
+                                     
+                       
+                                     }
                     
 
                 
