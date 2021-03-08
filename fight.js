@@ -79,6 +79,8 @@ client.on('message', msg=> {
                               let heavy 
                               const ultimate = 50
 
+                              
+
                           const endD = ["`end`", "`attacks`"]
                           
 
@@ -90,6 +92,9 @@ client.on('message', msg=> {
                                     game()
 
                       function game(){
+
+                        
+                    
                                
                                 
                               if(turn == 1){

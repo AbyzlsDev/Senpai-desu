@@ -421,6 +421,44 @@ client.on('message',  msg => {
                                      
                        
                                      }
+
+                                     if (command == "gay"){
+
+                                        let min = 1
+                                        let gay 
+                                        
+                                        gay = Math.floor(Math.random() * 100)
+
+                                        if(gay < min) gay = min
+
+                                        if(msg.mentions.users.first()){
+
+                                    
+             
+                                        const gay1 = new Discord.MessageEmbed()
+                                        .setColor('#0099ff')
+                                        .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay!`)
+                                        
+                
+                                        msg.channel.send(gay1)
+                                        }
+                                        else {
+
+                                            const gay2 = new Discord.MessageEmbed()
+                                        .setColor('#0099ff')
+                                        .setDescription(`${msg.author.toString()}, is ${gay}% gay!`)
+                                        
+                
+                                        msg.channel.send(gay2)
+
+                                        }
+                                       
+                          
+                                        
+                          
+                                        }
+                       
+   
                     
 
                 

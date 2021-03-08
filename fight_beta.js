@@ -1,6 +1,7 @@
 
 require('dotenv').config();
 const Discord = require('discord.js');
+const e = require('express');
 const client = new Discord.Client();
 
 
@@ -93,7 +94,14 @@ client.on('message',  msg=> {
 
                           let alrtMSG
                           
+                          let healChnance  = [1,2]
+                          let hC
+                          let heal = 15
+                          let healUsed = 0
+                          let choosePlayer = [1,2], cP
 
+
+                          
                           
 
 
@@ -105,6 +113,7 @@ client.on('message',  msg=> {
 
                       function game() {
 
+                        
                         let  MSG = new Discord.MessageEmbed()
                         .setColor('#0099ff')
                         .setDescription(`${player} used their ${type} attack and dealt ${damage} damage to ${enemy} and they have ${health} health left!`)
@@ -117,7 +126,7 @@ client.on('message',  msg=> {
 
                         if(sent == 0){
 
-                          sent = 1
+                          sent = 1 // aka skip
 
                         }
                         else if(sent == 2) {
@@ -140,8 +149,60 @@ client.on('message',  msg=> {
                                      msg.channel.send(MSG)
                                             
                                           }
+
+                            if(healUsed == 0){
                                
+                             hC = Math.floor(Math.random() * healChnance.length)
+                             console.log(hC + "is hC value")
+                             if(healChnance[1] == healChnance[hC]){
+                               
+
+                              let  healMSG = new Discord.MessageEmbed()
+                        .setColor('#00FF00')
+                        .setDescription(`${player} has been healed!`)
+
+
+                               healUsed = 1
+                               cP = Math.floor(Math.random() * choosePlayer.length)
+                               console.log(cP + "is cP value")
+
+                               if(choosePlayer[1] == choosePlayer[cP]){
+
+                                player = player1
+
+                                health1 += heal
+
+                                msg.channel.send(healMSG)
+
+                                sent = 0
+
+                                game()
+
+
+
+                               } else if (choosePlayer[2] == choosePlayer[cP]){
+
+                                player = player2
+
+                                health2 += heal
+                               
+                                msg.channel.send(healMSG)
+
+                                sent = 0
+
+                                game()
+
+
+                               }
+
+                              } else {
+                                sent = 0
+                                game()
                                 
+                              }
+
+                             }
+
                               if(turn == 1){
                                 if(health1 > 0)  {
                                   msg.channel.send(`Please, choose an abilty, ${player1}! Remember, if you want to end the game, you can type ${endD[0]}. Also you can check your attacks by typing ${endD[1]}. `)
@@ -411,9 +472,9 @@ client.on('message',  msg=> {
                                       if(used2 == 0){
                                         used2++
                                       health1 = health1 - ultimate
-                                      mediumUsed1 = 0
-                                      lightUsed1 = 0
-                                      heavyUsed1 = 0
+                                      mediumUsed2 = 0
+                                      lightUsed2 = 0
+                                      heavyUsed2 = 0
                                       
                                      
                                       turn--
@@ -506,6 +567,7 @@ client.on('message',  msg=> {
 
                       }
                     }
+                  
 
                    }else{
                     msg.channel.send(`Game rejected by ${mUser.toString()}, c'mon man up!`)
