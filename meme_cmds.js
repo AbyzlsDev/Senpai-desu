@@ -426,23 +426,40 @@ client.on('message',  msg => {
 
                                         let min = 1
                                         let gay 
+                                         
                                         
                                         gay = Math.floor(Math.random() * 100)
 
                                         if(gay < min) gay = min
 
+                                        
+
                                         if(msg.mentions.users.first()){
 
-                                    
+                                            if(gay == 69){
+                                                const gay1 = new Discord.MessageEmbed()
+                                        .setColor('#0099ff')
+                                        .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay! Nice!`)
+                                        msg.channel.send(gay1)
+                                            } else{
              
                                         const gay1 = new Discord.MessageEmbed()
                                         .setColor('#0099ff')
                                         .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay!`)
+                                        msg.channel.send(gay1)
+                                            }
                                         
                 
-                                        msg.channel.send(gay1)
+                                        
                                         }
                                         else {
+
+                                            if(gay == 69){
+                                                const gay2 = new Discord.MessageEmbed()
+                                        .setColor('#0099ff')
+                                        .setDescription(`${msg.author}, is ${gay}% gay! Nice!`)
+                                        msg.channel.send(gay2)
+                                            } else{
 
                                             const gay2 = new Discord.MessageEmbed()
                                         .setColor('#0099ff')
@@ -450,6 +467,7 @@ client.on('message',  msg => {
                                         
                 
                                         msg.channel.send(gay2)
+                                            }
 
                                         }
                                        
