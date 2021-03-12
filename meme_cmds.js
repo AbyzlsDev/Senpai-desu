@@ -120,7 +120,7 @@ client.on('message',  msg => {
         if (command === 'dick') {
 
             let size = ["=", "==", "===", "====", "=====", "======", "=======", "========", "=========", "==========", "==========="]
-            let i;
+            let i
         
             
 
@@ -441,11 +441,20 @@ client.on('message',  msg => {
                                         .setColor('#0099ff')
                                         .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay! Nice!`)
                                         msg.channel.send(gay1)
-                                            } else{
+                                            } else if(gay >= 50) {
+
+                                             const gay1 = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay! You're hella sus, damn! 4k :camera_with_flash: `)
+                                            msg.channel.send(gay1)
+                                                
+                                            }
+                                            
+                                            else if(gay <= 50){
              
                                         const gay1 = new Discord.MessageEmbed()
                                         .setColor('#0099ff')
-                                        .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay!`)
+                                        .setDescription(`${msg.mentions.users.first().toString()}, is ${gay}% gay! You're fine, thank god! You're too innocent to join the LGBTQ community!`)
                                         msg.channel.send(gay1)
                                             }
                                         
@@ -459,16 +468,29 @@ client.on('message',  msg => {
                                         .setColor('#0099ff')
                                         .setDescription(`${msg.author}, is ${gay}% gay! Nice!`)
                                         msg.channel.send(gay2)
-                                            } else{
+                                            } else if(gay >= 50){
 
                                             const gay2 = new Discord.MessageEmbed()
                                         .setColor('#0099ff')
-                                        .setDescription(`${msg.author.toString()}, is ${gay}% gay!`)
+                                        .setDescription(`${msg.author.toString()}, is ${gay}% gay! You're hella sus, damn! 4k :camera_with_flash:`)
                                         
                 
                                         msg.channel.send(gay2)
                                             }
+                                            else if(gay <= 50) {
+                                                const gay2 = new Discord.MessageEmbed()
+                                                .setColor('#0099ff')
+                                                .setDescription(`${msg.author.toString()}, is ${gay}% gay! You're fine, thank god! You're too innocent to join the LGBTQ community!`)
+                                                
+                        
+                                                msg.channel.send(gay2)
 
+                                            }
+
+                                            
+
+
+                                            
                                         }
                                        
                           

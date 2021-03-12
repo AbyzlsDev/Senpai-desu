@@ -213,7 +213,7 @@ client.on('message',  msg=> {
                                   }) 
 
                                  msg.channel.awaitMessages(m => m.author.id == msg.author.id,
-                                  {max: 1, time: 150000}).then(collected => { 
+                                  {max: 1, time: 15000}).then(collected => { 
                                           if (collected.first().content.toLowerCase() == '1') {
                                             
                                             min = 1
