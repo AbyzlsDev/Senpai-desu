@@ -493,9 +493,34 @@ client.on('message',  msg => {
                                             
                                         }
                                        
+                                        
+                                        
                           
                                         
                           
+                                        }
+                                        if(command == "pantof"){
+
+                                            if(msg.mentions.users.first()){
+
+                                            let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`${msg.mentions.users.first().toString()} is getting bonked with a "pantof", because they kicked the bot!`)
+                                            
+                    
+                                            msg.channel.send(pantof)
+
+                                            } else {
+
+                                                let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`And today the person that is getting bonked with a "pantof" is... Nobody. (You forgot to mention a user!)`)
+                                            
+                    
+                                            msg.channel.send(pantof)
+
+                                            }
+                                            
                                         }
                        
    
