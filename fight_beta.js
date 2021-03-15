@@ -99,6 +99,7 @@ client.on('message',  msg=> {
                           let heal = 15
                           let healUsed = 0
                           let choosePlayer = [1,2], cP
+                          let firstplay = true
 
 
                           
@@ -150,7 +151,7 @@ client.on('message',  msg=> {
                                             
                                           }
 
-                            if(healUsed == 0){
+                            if(healUsed == 0 && firstplay == false){
                                
                              hC = Math.floor(Math.random() * healChnance.length)
                              console.log(hC + "is hC value")
@@ -176,7 +177,7 @@ client.on('message',  msg=> {
 
                                 sent = 0
 
-                                game()
+                               
 
 
 
@@ -190,7 +191,7 @@ client.on('message',  msg=> {
 
                                 sent = 0
 
-                                game()
+                                
 
 
                                }
@@ -204,6 +205,7 @@ client.on('message',  msg=> {
                              }
 
                               if(turn == 1){
+                                
                                 if(health1 > 0)  {
                                   msg.channel.send(`Please, choose an abilty, ${player1}! Remember, if you want to end the game, you can type ${endD[0]}. Also you can check your attacks by typing ${endD[1]}. `)
 
@@ -232,7 +234,7 @@ client.on('message',  msg=> {
                                             health = health2
                                             type = "light"
                                             damage = light
-                                       
+                                       firstplay = false
                                             
                                             
                                             game()    
