@@ -1,7 +1,6 @@
 
 require('dotenv').config();
 const Discord = require('discord.js');
-const e = require('express');
 const client = new Discord.Client();
 
 
