@@ -84,7 +84,7 @@ client.on('message',  msg=> {
                                let heavyUsed1 = 0
                                let heavyUsed2 = 0
 
-                              let light 
+                              let light = 0
                               let medium
                               let heavy 
                               const ultimate = 30
@@ -93,12 +93,10 @@ client.on('message',  msg=> {
 
                           let alrtMSG
                           
-                          let healChnance  = [1,2]
-                          let hC
-                          let heal = 15
-                          let healUsed = 0
-                          let choosePlayer = [1,2], cP
-                          let firstplay = true
+                          
+
+                        
+                         
 
 
                           
@@ -113,6 +111,9 @@ client.on('message',  msg=> {
 
                       function game() {
 
+                       
+
+
                         
                         let  MSG = new Discord.MessageEmbed()
                         .setColor('#0099ff')
@@ -122,18 +123,18 @@ client.on('message',  msg=> {
                         .setColor('#DC143C')
                         .setDescription(alrtMSG)
                         
+                          switch(sent) {
 
+                      case 3:
 
-                        if(sent == 0){
+                         sent = 1
 
-                          sent = 1 // aka skip
-
-                        }
-                        else if(sent == 2) {
+                       break
+                         case 2:
 
                           
 
-                          sent = 0
+                          sent = 1
                           msg.channel.send(alerts)
                           .then(msg => {
                             msg.delete({ timeout: 30000 })
@@ -143,65 +144,16 @@ client.on('message',  msg=> {
                           
                          
 
-                        }
-                        else if(sent == 1){
+                        break
+                      case 1:
                           
                                      msg.channel.send(MSG)
                                             
-                                          }
+                                          break
 
-                            if(healUsed == 0 && firstplay == false){
-                               
-                             hC = Math.floor(Math.random() * healChnance.length)
-                             console.log(hC + "is hC value")
-                             if(healChnance[1] == healChnance[hC]){
-                               
+                                        }
 
-                              let  healMSG = new Discord.MessageEmbed()
-                        .setColor('#00FF00')
-                        .setDescription(`${player} has been healed!`)
-
-
-                               healUsed = 1
-                               cP = Math.floor(Math.random() * choosePlayer.length)
-                               console.log(cP + "is cP value")
-
-                               if(choosePlayer[1] == choosePlayer[cP]){
-
-                                player = player1
-
-                                health1 += heal
-
-                                msg.channel.send(healMSG)
-
-                                sent = 0
-
-                               
-
-
-
-                               } else if (choosePlayer[2] == choosePlayer[cP]){
-
-                                player = player2
-
-                                health2 += heal
-                               
-                                msg.channel.send(healMSG)
-
-                                sent = 0
-
-                                
-
-
-                               }
-
-                              } else {
-                                sent = 0
-                                game()
-                                
-                              }
-
-                             }
+                             
 
                               if(turn == 1){
                                 
@@ -215,7 +167,8 @@ client.on('message',  msg=> {
 
                                  msg.channel.awaitMessages(m => m.author.id == msg.author.id,
                                   {max: 1, time: 15000}).then(collected => { 
-                                          if (collected.first().content.toLowerCase() == '1') {
+                                  switch(collected.first().content.toLowerCase()){
+                                    case "1":
                                             
                                             min = 1
                                             
@@ -224,7 +177,7 @@ client.on('message',  msg=> {
                                             if(light < min) light = min
                                         
 
-                                            health2 = health2 - light
+                                            health2 -= light
                                             turn++
                                             lightUsed1++
 
@@ -233,17 +186,23 @@ client.on('message',  msg=> {
                                             health = health2
                                             type = "light"
                                             damage = light
-                                       firstplay = false
+                                            firstplay = false
+                                            
+                                            sent = 1
                                             
                                             
-                                            game()    
-                                          } 
-                                          else if (collected.first().content.toLowerCase() == '2') {
+                                            game()
+                                              
+                                          
+                                          break
+
+                                         case "2": 
+
                                             if(lightUsed1 >= 4){
                                               min = 5
                                             medium = Math.floor(Math.random() * 10) 
                                             if(medium < min ) medium = min
-                                            health2 = health2 - medium
+                                            health2 -= medium
                                             
                                             turn++
                                             mediumUsed1++
@@ -254,20 +213,24 @@ client.on('message',  msg=> {
                                             type = "medium"
                                             damage = medium
 
+                                            sent = 1
+
                                                game()
-                                            }else{
+                                            } else {
                                               sent = 2
                                             alrtMSG = `${player1}, you need to use your medium attack at least ${4 - lightUsed1} more times!`
                                                  game()
                                             }  
-                                          }
-                                          else if (collected.first().content.toLowerCase() == '3') {
+
+                                            break
+                                          
+                                          case "3":
                                             if(mediumUsed1 >= 3){
                                               min = 10
                                             heavy = Math.floor(Math.random() * 15) 
                                               if (heavy < min) heavy = min
 
-                                            health2 = health2 - heavy
+                                            health2 -= heavy
                                             
                                             player = player1
                                             enemy = player2
@@ -278,7 +241,7 @@ client.on('message',  msg=> {
                                             turn++
                                             heavyUsed1++
 
-                                            
+                                            sent = 1
           
                                             game()    
                                           }
@@ -287,18 +250,18 @@ client.on('message',  msg=> {
                                             alrtMSG = `${player1}, you need to use your medium attack at least ${3 - mediumUsed1} more times!`
                                                game()
                                           }
-                                        }
-                                          else if (collected.first().content.toLowerCase() == '4') {
+                                        break
+                                          case "4":
                                            if(mediumUsed1 >= 3 && lightUsed1 >= 4 && heavyUsed1 >= 2){
                                             if(used1 == 0){
                                               used1++
-                                            health2 = health2 - ultimate
+                                            health2 -= ultimate
                                             
                                             mediumUsed1 = 0
                                             lightUsed1 = 0
                                             heavyUsed1 = 0
                                       
-                                     
+                                            sent = 1
                                       
                                             player = player1
                                             enemy = player2
@@ -329,36 +292,38 @@ client.on('message',  msg=> {
                                               game()
         
                                             }
-                                          }else{
+                                          } else { 
                                             sent = 2
                                             alrtMSG = `${player1}, you have to use all of your attacks before you're able to use your ultimate!`
                                             
                                             game()
                                           }
-                                        }
+                                        break
       
-                                          else if (collected.first().content.toLowerCase() == 'end') {
+                                          case "end":
                                             
                                             msg.channel.send(`Game ending!`)
                                             .then(msg => {
     msg.delete({ timeout: 15000 })
   })
-                                            return;   
-                                          }
-                                          else if (collected.first().content.toLowerCase() == 'attacks') {
-                                            msg.channel.send(fighthelp)
-                                            sent = 0         
+                                            return
+                                              
+                                          
+                                         case "attacks":
+                                            msg.channel.send(fighthelp)  
+                                            sent = 3 
                                            game()
-                                          }
-                                          else {
+                                          break
+                                          
+                                          default:
                                             sent = 2
                                             alrtMSG = `${player1}, something went wrong! Try again!`
                                             
                                             return game();
 
-                                          }
                                           
                                           
+            }   
                                           
                                   }).catch(() => {
                                     alrtMSG = `${player1} failed to respond in time, what a turtle! ${player2} has won!`
@@ -390,20 +355,19 @@ client.on('message',  msg=> {
 
                                 msg.channel.awaitMessages(m => m.author.id == mUser.id,
                                   {max: 1, time: 150000}).then(collected => {
+
+                                    switch(collected.first().content.toLowerCase()){
                                     
-                                    if (collected.first().content.toLowerCase() == '1') {
+                                   case "1":
 
-                                      
-
-
+                        
+                                    sent = 1
                                       min = 1
-                                      
-
                                       light = Math.floor(Math.random() * 5)
                                       
                                       if(light < min) light = min
                                      
-                                      health1 = health1 - light
+                                      health1 -= light
                                       turn--
                                       lightUsed2++
                                       
@@ -413,14 +377,18 @@ client.on('message',  msg=> {
                                       type = "light"
                                       damage = light
     
-                                      game()    
-                                    } 
-                                    else if (collected.first().content.toLowerCase() == '2') {
+                                      game()  
+                                      
+                                    break
+                                    
+                                   case "2": 
+
+                                   sent = 1
                                       if(lightUsed2 >= 4){
                                         min = 5
                                       medium = Math.floor(Math.random() * 10)
                                       if(medium < min) medium = min
-                                      health1 = health1 - medium
+                                      health1  -= medium
 
                                       
                                       
@@ -441,13 +409,14 @@ client.on('message',  msg=> {
                                         
                                                game()
                                       } 
-                                    }
-                                    else if (collected.first().content.toLowerCase() == '3') {
+                                    break
+                                    case "3":
+                                      sent = 1
                                       if(mediumUsed2 >= 3){
                                         min = 10
                                       heavy = Math.floor(Math.random() * 15)
                                       if(heavy < min ) heavy = min
-                                      health1 = health1 - heavy
+                                      health1 -= heavy
                                       
                                       
                                       turn--
@@ -467,12 +436,13 @@ client.on('message',  msg=> {
                                        
                                                game()
                                       } 
-                                    }
-                                    else if (collected.first().content.toLowerCase() == '4') {
+                                    break
+                                    case "4": 
+                                    sent = 1
                                       if(mediumUsed2 >= 3 && lightUsed2 >= 4 && heavyUsed2 >= 2){
                                       if(used2 == 0){
                                         used2++
-                                      health1 = health1 - ultimate
+                                      health1 -= ultimate
                                       mediumUsed2 = 0
                                       lightUsed2 = 0
                                       heavyUsed2 = 0
@@ -515,32 +485,31 @@ client.on('message',  msg=> {
                                     
                                     game()
                                   }
-                                  }
+                                  break
                                 
-                                  else if (collected.first().content.toLowerCase() == 'attacks') {
+                                 case "attacks":
                                     msg.channel.send(fighthelp)
-                                    sent = 0
+                                    sent = 3 
                                    game()
-                                  }
+                                  break
                                   
-                                  else if (collected.first().content.toLowerCase() == 'end') {
+                                  case "end":
                                     msg.channel.send(`Game ending!`)
                                     .then(msg => {
     msg.delete({ timeout: 15000 })
   })
                                      return;   
-                                  }
-                                  else {
+                                  
+                                default:
                                     alrtMSG = `${player2}, Something went wrong! Try again!`
                                     sent = 2
                                     
                                     return game();
-
-                                  }
-                                         
+                                  
+}      
                                   
                                   
-                                  }).catch(() => {
+}).catch(() => {
                                     alrtMSG = `${player2} failed to respond in time, what a turtle! ${player1} has won!`
                                     msg.channel.send(alerts)
 
@@ -554,6 +523,7 @@ client.on('message',  msg=> {
 
                                   
                         }
+                      }
                         
                         else{
                           msg.channel.send(`${player1} has won! :crown:`)
@@ -567,10 +537,10 @@ client.on('message',  msg=> {
                               
 
                       }
-                    }
+                    
+                        
                   
-
-                   }else{
+                   } else{
                     msg.channel.send(`Game rejected by ${mUser.toString()}, c'mon man up!`)
                     .then(msg => {
     msg.delete({ timeout: 15000 })
@@ -586,15 +556,18 @@ client.on('message',  msg=> {
     return;
                                 
               })       
-        }
-                
-}
         
+            }
+          }
+            })
 
-});
+
+             
+
+
 
 client.login(process.env.TOKEN);
-
+            
 
 
 
