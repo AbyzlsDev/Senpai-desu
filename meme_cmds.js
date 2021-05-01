@@ -1,11 +1,13 @@
 require('dotenv').config();
 const Discord = require('discord.js');
+
 const client = new Discord.Client();
 
 
         
        
 client.on('ready', () => {
+
 console.log("Meme cmds ready")
 });
 
@@ -522,6 +524,63 @@ client.on('message',  msg => {
                                             }
                                             
                                         }
+
+                                        if(command == "fbiopenup"){
+
+                                            let i
+
+                                            let fbiopenups = ['https://media1.tenor.com/images/5abcc4434910b37e1c99a38f24a24357/tenor.gif?itemid=17130851', 'https://media1.tenor.com/images/1de67159288c2583f1d457cb19b49462/tenor.gif?itemid=13450966']
+                                            i = Math.floor(Math.random() * fbiopenups.length)
+                                            if(msg.mentions.users.first()){
+
+                                            let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`FBI-chan desu, you seem to be lewding lolies, ${msg.mentions.users.first().toString()}!`)
+                                            .setImage(fbiopenups[i])
+                                            
+                    
+                                            msg.channel.send(pantof)
+
+                                            } else{
+
+                                                let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`Who is FBI-chan raiding? Baka!`)
+                                            
+                                            
+                    
+                                            msg.channel.send(pantof)
+
+                                            }
+                                            
+                                        }
+
+                                        if(command == "saucegenerator"){
+
+                                            let i
+
+    
+                                            i = Math.floor(Math.random() * 350000) + 1
+
+                                            if(i < 0) i = 1
+                                            
+                                            else if(i > 350000) i = 350000
+
+                                            
+
+                                                let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`Your sauce is ${i}. Please, keep in mind that this is a random number generator, so some of the sauces might not work!`)
+                                            
+                                            
+                    
+                                            msg.channel.send(pantof)
+
+                                            
+                                            
+                                        }
+
+                                        
                        
    
                     

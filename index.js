@@ -9,9 +9,6 @@ const tictactoe = require('./tictactoe.js')
 
 
 
-
-
-
 const client = new Discord.Client();
 
 
@@ -21,7 +18,10 @@ client.login(process.env.TOKEN);
 
 client.on('ready', () => {
 
+
 console.log("Bot ready")
+
+
 //status: "online",  // You can show online, idle... Do not disturb is dnd
 client.user.setStatus('busy')
 

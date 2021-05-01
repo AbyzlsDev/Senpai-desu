@@ -15,7 +15,6 @@ const fighthelp = new Discord.MessageEmbed()
         )
 
       
-
         
 
 
@@ -143,11 +142,13 @@ client.on('message', msg=> {
                             msg.channel.awaitMessages(m => m.author.id == msg.author.id,
                                 {max: 1, time: 60000}).then(collected => {
 
-                                        if(collected.first().content.toLowerCase() == "a1"){
+                                        switch(collected.first().content.toLowerCase()){
+
+                                       
 
 
 
-
+                                        case "a1":
                                                 if(valuea1 == 0){
 
                                                 a1 = x
@@ -164,12 +165,14 @@ client.on('message', msg=> {
                                                         game()
                                                 }
 
+                                                 break
 
 
 
-                                        }
 
-                                       else if(collected.first().content.toLowerCase() == "a2"){
+                                        
+
+                                      case "a2":
     
     
     
@@ -190,7 +193,7 @@ client.on('message', msg=> {
                                                         
                                                         game()
                                                 }
-
+                                                break
                                                 
 
                                                 
@@ -198,10 +201,10 @@ client.on('message', msg=> {
 
 
 
-                                        }
-                                        else if(collected.first().content.toLowerCase() == "a3"){
+                                        
+                                        
     
-    
+        	                        case "a3":
     
     
                                                 if(valuea3 == 0){
@@ -222,15 +225,15 @@ client.on('message', msg=> {
                                                 }
 
                                                 
-
+                                        break
                                                 
 
 
 
 
-                                        }
+                                        
 
-                                        else if(collected.first().content.toLowerCase() == "b1"){
+                                       case "b1":
 
 
 
@@ -251,13 +254,13 @@ client.on('message', msg=> {
                                                         game()
                                                 }
 
+                                                break
 
 
+                                        
 
-                                        }
-
-                                        else if(collected.first().content.toLowerCase() == "b2"){
-    
+                                       
+                                                case "b2":
     
     
     
@@ -280,13 +283,13 @@ client.on('message', msg=> {
 
                                                 
 
-                                                
+                                                break
 
 
 
 
-                                        }
-                                        else  if(collected.first().content.toLowerCase() == "b3"){
+                                        
+                                        case "b3":
     
     
     
@@ -308,16 +311,12 @@ client.on('message', msg=> {
                                                         game()
                                                 }
 
-                                                
+                                                break
 
                                                 
 
 
-
-
-                                        }
-
-                                        else if(collected.first().content.toLowerCase() == "c1"){
+                                      case "c1":
 
 
 
@@ -341,9 +340,9 @@ client.on('message', msg=> {
 
 
 
-                                        }
+                                        break
 
-                                        else if(collected.first().content.toLowerCase() == "c2"){
+                                       case "c2":
     
     
     
@@ -365,15 +364,14 @@ client.on('message', msg=> {
                                                         game()
                                                 }
 
-                                                
+                                                break
 
                                                 
 
 
 
 
-                                        }
-                                        else  if(collected.first().content.toLowerCase() == "c3"){
+                                       case "c3":
     
     
     
@@ -402,26 +400,27 @@ client.on('message', msg=> {
 
 
 
-                                        }
-                                        else {
-                                                msg.channel.send(`Something went wrong! Try again!`)
+                                        break
+                                        
+                                          default: 
+                                          msg.channel.send(`Something went wrong! Try again!`)
                 
                                                 game()
                 
-                                              }    
+                                           
                                     
                                         
                                      
-                                    
+                                        }
 
 
-                                })
+                                        })
 
-                            
-                           
-                           
+                
+                                
+                        
                     
-                        }
+                                }
                     
                         if (turn == 1){
                     
@@ -431,10 +430,9 @@ client.on('message', msg=> {
                                 msg.channel.awaitMessages(m => m.author.id == mUser.id,
                                     {max: 1, time: 60000}).then(collected => {
     
-                                            if(collected.first().content.toLowerCase() == "a1"){
+                                            switch(collected.first().content.toLowerCase()){
     
-    
-    
+                                        case "a1":
     
                                                     if(valuea1 == 0){
     
@@ -453,13 +451,13 @@ client.on('message', msg=> {
                                                             game()
                                                     }
 
-                                                    
+                                                  break  
     
     
     
     
-                                            }
-                                            else  if(collected.first().content.toLowerCase() == "a2"){
+                                       case "a2":
+
     
     
     
@@ -486,9 +484,9 @@ client.on('message', msg=> {
 
 
 
-                                        }
+                                        break
 
-                                        else if(collected.first().content.toLowerCase() == "a3"){
+                                        case "a3":
     
     
     
@@ -510,15 +508,15 @@ client.on('message', msg=> {
                                                         game()
                                                 }
 
-                                                
+                                                break
 
                                                 
 
 
 
 
-                                        }
-                                        else if(collected.first().content.toLowerCase() == "b1"){
+                                        
+                                        case "b1":
     
     
     
@@ -540,13 +538,13 @@ client.on('message', msg=> {
                                                         game()
                                                 }
 
-                                                
+                                                break
 
 
 
 
-                                        }
-                                        else if(collected.first().content.toLowerCase() == "b2"){
+                                        
+                                      case "b2":
 
 
 
@@ -570,13 +568,12 @@ client.on('message', msg=> {
 
                                             
 
+                        break
 
 
+                                    
 
-                                    }
-
-                                    else  if(collected.first().content.toLowerCase() == "b3"){
-
+                                    case "b3":
 
 
 
@@ -599,14 +596,14 @@ client.on('message', msg=> {
 
                                             
 
-                                            
+                                            break
 
 
 
 
-                                    }
+                                    
 
-                                    else if(collected.first().content.toLowerCase() == "c1"){
+                                    case "c1":
     
     
     
@@ -629,12 +626,12 @@ client.on('message', msg=> {
                                         }
 
                                         
+                                break
 
 
 
-
-                                }
-                                else if(collected.first().content.toLowerCase() == "c2"){
+                                
+                                case "c2":
 
 
 
@@ -659,11 +656,9 @@ client.on('message', msg=> {
                                     
 
 
+                            break
 
-
-                            }
-
-                            else if(collected.first().content.toLowerCase() == "c3"){
+                           case "c3":
 
 
 
@@ -686,26 +681,19 @@ client.on('message', msg=> {
                                     }
 
 
-                                    
-
-                                    
-
-
-
-
-                            }
+                                        break
                             
-                            else {
+                                 default:
                                 msg.channel.send(`Something went wrong! Try again!`)
 
                                 game()
 
-                              }     
+                              }   
                     
                         })
-                
+                        }
                                             
-                                        }
+                                        
 
                                 function calc(){
 
