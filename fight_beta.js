@@ -12,7 +12,7 @@ const fighthelp = new Discord.MessageEmbed()
             { name: `Light attack`, value: `Activated by typing number ${"`1`"}; Deals 1 - 6 damage; Can be used at all times`  },
             { name: `Medium attack`, value: `Activated by typing number ${"`2`"}; Deals 1 - 11 damage; To use this attack you need to use your light attack at least 4 times`},
             { name: `Heavy attack`, value: `Activated by typing number ${"`3`"}; Deals 1 - 16 damage; To use this attack you need to use your medium attack at least 3 times`},
-            { name: `Ultimate attack`, value: `Activated by typing number ${"`4`"}; Deals 50 damage; To use this attack you need to use all of your attacks (light - 4 times; medium - 3 times; heavy - 2 times); You can only use this attack once a game!`},
+            { name: `Ultimate attack`, value: `Activated by typing number ${"`4`"}; Deals 30 damage; To use this attack you need to use all of your attacks (light - 4 times; medium - 3 times; heavy - 2 times); You can only use this attack once a game!`},
         )
 
       
