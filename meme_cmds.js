@@ -580,6 +580,33 @@ client.on('message',  msg => {
                                             
                                         }
 
+                                        if(command == "cappy"){
+
+                                            let cappies = ['orange', 'pineapple', 'banana', 'apple', 'lemon', 'apricot', 'peach', 'pear', 'strawberry', 'cherry', 'green apple']
+
+                                            let i
+
+    
+                                            i = Math.floor(Math.random() * cappies.length)
+
+                                            
+
+                                            
+
+                                                let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`Your Cappy flavour is ${cappies[i]}!`)
+                                            
+                                            
+                    
+                                            msg.channel.send(pantof)
+
+                                            
+                                            
+                                        }
+
+                                        
+
                                         
                        
    
