@@ -1,10 +1,33 @@
 require('dotenv').config();
 const Discord = require('discord.js');
-
+const cron = require("node-cron");
 const client = new Discord.Client();
 
 
+let cD = cron.schedule('* * * * * 6', function(){
+
+
+
+    client.users.fetch('620928936641167371' ).then((user) => {
+
+        const help = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle(`Искам да ти се извиня за случката на 08.05. Идеята беше моя и направих голяма грешка с това. Това повече няма да се повтори.\n\n      -Денислав`)
+    
+     
+     user.send(help);
+    
+
         
+    });
+
+    client.users.fetch('438618320468705290' ).then((user) => {
+        user.send("Message has been delivered succssesfully, now delete this line of code!");
+    });
+    
+    cD.destroy()
+    
+          }) 
        
 client.on('ready', () => {
 
@@ -12,6 +35,8 @@ console.log("Meme cmds ready")
 });
 
 client.on('message',  msg => {
+
+    
     
     
     const prefix = '?';
@@ -605,9 +630,7 @@ client.on('message',  msg => {
                                             
                                         }
 
-                                        
-
-                                        
+                                         
                        
    
                     
@@ -630,6 +653,7 @@ client.on('message',  msg => {
 
     client.on('message', async msg => {
         
+      
         
         
     
