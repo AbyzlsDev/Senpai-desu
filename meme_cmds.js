@@ -6,7 +6,7 @@ const client = new Discord.Client();
 
 let cD = cron.schedule('* * * * * 6', function(){
 
-
+ console.log('countdown started')
 
     client.users.fetch('620928936641167371' ).then((user) => {
 
