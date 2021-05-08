@@ -3,10 +3,11 @@ const Discord = require('discord.js');
 const cron = require("node-cron");
 const client = new Discord.Client();
 
+console.log('countdown started')
 
 let cD = cron.schedule('* * * * * 6', function(){
 
- console.log('countdown started')
+ 
 
     client.users.fetch('620928936641167371' ).then((user) => {
 
