@@ -605,6 +605,60 @@ client.on('message',  msg => {
                                             
                                         }
 
+                                        if(command == "funny"){
+
+                                            
+
+                                            let i = Math.floor(Math.random() * 100) + 1
+
+                                            if(i < 0) i = 1
+
+                                            if(i > 100) i = 100
+
+                                            let funny = ["you're funny", "you're not funny"]
+                                            let funnyMSG 
+
+                                            if(i >= 50) funnyMSG = funny[0]
+                                            else funnyMSG = funny[1]
+
+                                            
+                                        
+                                             if(msg.mentions.users.first()){
+                  
+                
+                                              
+                            
+                                              const dick1 = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`${msg.mentions.users.first().toString()}, ${funnyMSG}!`)
+                                            msg.channel.send(dick1);
+                            
+                                      
+                                           }
+                                            
+
+                                            else if(msg.author == "220113473315536897"){
+
+                                                let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`${msg.author.toString()}, you're not funny!`)
+                                            
+                                            
+                    
+                                            msg.channel.send(pantof)
+                                            }
+                                            else {
+
+                                                let pantof = new Discord.MessageEmbed()
+                                            .setColor('#0099ff')
+                                            .setDescription(`${msg.author.toString()}, ${funnyMSG}!`)
+
+                                            msg.channel.send(pantof)
+
+                                            }
+                                            
+                                        }
+
                                          
                        
    
