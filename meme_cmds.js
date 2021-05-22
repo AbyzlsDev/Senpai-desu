@@ -295,7 +295,7 @@ client.on('message',  msg => {
 
                 if (command == "svetatacordiq"){
 
-                    if(msg.member.roles.cache.find(r => r.id === "800618727703445516")) {
+                    if(msg.member.roles.cache.find(r => r.id === "845726296847417365")) {
     
                     
       
