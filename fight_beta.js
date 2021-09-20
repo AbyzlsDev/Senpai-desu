@@ -92,18 +92,7 @@ client.on('message',  msg=> {
                           const endD = ["`end`", "`attacks`"]
 
                           let alrtMSG
-                          
-                          
-
-                        
-                         
-
-
-                          
-                          
-
-
-
+          
                                 let health1 = 100
                                 let health2 = 100
 

@@ -10,7 +10,7 @@ client.on('ready', () => {
     
     })
 //30 14 * * 1,2,3,4,5,6,0
-    cron.schedule('30 14 * * 1,2,3,4,5,6,0', () => {
+    cron.schedule('10 12 * * 1,2,3,4,5,6,0', () => {
 
         client.users.fetch('438618320468705290').then((user) => {
 
